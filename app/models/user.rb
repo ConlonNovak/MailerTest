@@ -7,4 +7,8 @@ class User < ApplicationRecord
     end
   end
 
+  def self.testMethod
+    puts User.all
+  end
+
 end

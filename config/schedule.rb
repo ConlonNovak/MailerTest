@@ -9,8 +9,12 @@ set :output, "/../log/cron_log.log"
 set :environment, 'development'
 
 #
-every 3.minutes do
-  runner "User.email_all"
+# every 3.minutes do
+#   runner "User.email_all"
+# end
+
+every 1.minute do
+  rake "db:migrate"
 end
 #
 # every 4.days do
