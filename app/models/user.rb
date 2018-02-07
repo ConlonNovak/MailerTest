@@ -9,7 +9,7 @@ class User < ApplicationRecord
   end
 
 
-  # Men's Basketball 5
+  # Men's Basketball 5 @ 7PM
   def self.email_mbb
     User.all.each do |u|
       if u.team_id == 5
@@ -18,7 +18,7 @@ class User < ApplicationRecord
     end
   end
 
-  # Women's Basketball 6
+  # Women's Basketball 6 @ 7PM
   def self.email_wbb
     User.all.each do |u|
       if u.team_id == 6
