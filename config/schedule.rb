@@ -5,7 +5,7 @@
 
 # Example:
 #
-set :output, "/../log/cron_log.log"
+set :output, "/Users/aleclamusr/Desktop/67-373/S18/MailerTest/log/cron.log"
 set :environment, 'development'
 
 #
@@ -13,8 +13,14 @@ set :environment, 'development'
 #   runner "User.email_all"
 # end
 
+job_type :qapla, "cd /Users/aleclamusr/Desktop/67-373/S18/MailerTest && rvm use 2.4.1 && :task :second && rails runner 'User.email_all' "
+
+# every 3.minutes do
+#   runner 'User.email_all'
+# end
+
 every 1.minute do
-  rake "db:migrate"
+  qapla 'bundle', second: 'install'
 end
 #
 # every 4.days do
