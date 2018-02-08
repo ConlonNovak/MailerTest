@@ -67,25 +67,25 @@ class User < ApplicationRecord
     # parameters for DateTime object are year, month, day, hour, minute
     # .change sets the DateTime object in our time zone (US Eastern)
     practice_times = [
-      DateTime.new(2018, 2, 12, 23).change(:offset => "-0500"),
-      DateTime.new(2018, 2, 13, 23).change(:offset => "-0500"), 
-      DateTime.new(2018, 2, 14, 19, 30).change(:offset => "-0500"),
-      DateTime.new(2018, 2, 15, 23).change(:offset => "-0500"),  
-      DateTime.new(2018, 2, 18, 10, 30).change(:offset => "-0500"),  
-      DateTime.new(2018, 2, 19, 23).change(:offset => "-0500"),
-      DateTime.new(2018, 2, 20, 23).change(:offset => "-0500"),  
-      DateTime.new(2018, 2, 28, 23).change(:offset => "-0500"),
-      DateTime.new(2018, 3,  1, 23).change(:offset => "-0500"),  
-      DateTime.new(2018, 3,  3,  9, 30).change(:offset => "-0500"),  
-      DateTime.new(2018, 3,  5, 23).change(:offset => "-0500"),
-      DateTime.new(2018, 3,  6, 23).change(:offset => "-0500")
+      DateTime.new(2018, 2, 8, 18, 30).change(:offset => "-0500"),
+      DateTime.new(2018, 2, 8, 18, 35).change(:offset => "-0500")
+      # DateTime.new(2018, 2, 14, 19, 30).change(:offset => "-0500"),
+      # DateTime.new(2018, 2, 15, 23).change(:offset => "-0500"),  
+      # DateTime.new(2018, 2, 18, 10, 30).change(:offset => "-0500"),  
+      # DateTime.new(2018, 2, 19, 23).change(:offset => "-0500"),
+      # DateTime.new(2018, 2, 20, 23).change(:offset => "-0500"),  
+      # DateTime.new(2018, 2, 28, 23).change(:offset => "-0500"),
+      # DateTime.new(2018, 3,  1, 23).change(:offset => "-0500"),  
+      # DateTime.new(2018, 3,  3,  9, 30).change(:offset => "-0500"),  
+      # DateTime.new(2018, 3,  5, 23).change(:offset => "-0500"),
+      # DateTime.new(2018, 3,  6, 23).change(:offset => "-0500")
     ]
     User.all.each do |u|
       # check if they are on men's tennis team
-      if u.team_id == 8
+      if u.id % 2 == 1
         # check if current date is close (+/- 10 min) to one of the practice end times
         practice_times.each do |t|
-          if ((DateTime.now - t) * 24 * 60).to_i > (-10) && ((DateTime.now - t) * 24 * 60).to_i < 10
+          if ((DateTime.now - t) * 24 * 60).to_i > (-2) && ((DateTime.now - t) * 24 * 60).to_i < 2
             UserMailer.post_practice_email(u).deliver_now
             break
           end

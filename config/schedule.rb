@@ -11,3 +11,7 @@ job_type :wtennis, "cd /Users/aleclamusr/Desktop/67-373/S18/MailerTest && rvm us
 every 1.day, at: '10:00 am' do
   all 'bundle', second: 'install'
 end
+
+every 5.minutes do
+  mtennis 'bundle', second: 'install'
+end
