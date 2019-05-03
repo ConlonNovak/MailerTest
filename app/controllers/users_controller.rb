@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        UserMailer.pre_practice_email(@user).deliver_now
-        UserMailer.post_practice_email(@user).deliver_now
+        UserMailer.pre_visit_email(@user).deliver_now
+        UserMailer.post_visit_email(@user).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Hello, <%= @user.name %></h2>
+    <p>
+      Thank you for visiting the Holocaust Center of Pittsburgh on <%= Date.today.strftime("%B %d, %Y") %>. Please take a moment to fill out the following anonymous post-visit survey.<br>
+    </p>
+    <h2>
+      Survey link: <%= @testURL %> <br>
+      Estimated completion time: 5 minutes <br>
+    </h2>
+    <p>If you have any questions or issues, please contact your group leader immediately so that we can resolve them as quickly as possible.<br></p>
+    <p>Thanks,</p>
+    <p>Holocaust Center of Pittsburgh Staff</p>
+    <br>
+    <p>Please do not reply to this message. Replies to this message are routed to an unmonitored mailbox. If you have questions please <a href='https://hcofpgh.org/about-us/contact-2/'>visit our website</a> or call us at 412-421-1500.</p>
+  </body>
+</html>
